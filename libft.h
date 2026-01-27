@@ -56,7 +56,7 @@ void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 
 /* ************************************************************************** */
-/*                       PARTE 3 - Listas enlazadas (BONUS)                   */
+/*                          PARTE 3 - Listas enlazadas                        */
 /* ************************************************************************** */
 
 typedef struct s_list
