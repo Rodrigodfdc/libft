@@ -1,32 +1,39 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rodde-fr <rodde-fr@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/01/30 20:27:55 by rodde-fr          #+#    #+#             */
+/*   Updated: 2026/01/30 20:32:44 by rodde-fr         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	unsigned char		*d;
-	const unsigned char	*s;
-	size_t				i;
+	unsigned char	*dest;
+	unsigned char	*source;
 
-	if (!dst && !src)
+	dest = (unsigned char *)dst;
+	source = (unsigned char *)src;
+	if (!dest && !source)
 		return (NULL);
-	d = (unsigned char *)dst;
-	s = (const unsigned char *)src;
-	if (d > s)
+	if (dest == source || len == 0)
+		return (dst);
+	if (dest < source)
 	{
-		i = len;
-		while (i > 0)
-		{
-			i--;
-			d[i] = s[i];
-		}
+		while (len--)
+			*dest++ = *source++;
 	}
 	else
 	{
-		i = 0;
-		while (i < len)
-		{
-			d[i] = s[i];
-			i++;
-		}
+		dest += len;
+		source += len;
+		while (len--)
+			*(--dest) = *(--source);
 	}
 	return (dst);
 }
